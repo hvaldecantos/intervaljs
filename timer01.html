@@ -5,17 +5,30 @@
     <title>Timer</title>
 </head>
 <body>
-    <label id="seconds">0</label>
+    <label id="seconds_with_interval">0</label>
+
+    <label id="seconds_with_timeout">0</label>
 </body>
 
 <script type="text/javascript">
-    var minutesLabel = document.getElementById("minutes");
-    var secondsLabel = document.getElementById("seconds");
-    var totalSeconds = 0;
-    setInterval(setTime, 1000);
+    var secondsLabelI = document.getElementById("seconds_with_interval");
+    var secondsLabelT = document.getElementById("seconds_with_timeout");
+    var totalSecondsI = 0;
+    var totalSecondsT = 0;
+    var interval = 1000;
 
+    setInterval(setTime, interval);
+    moveTime();
+ 
     function setTime()
-    {
-        secondsLabel.innerHTML = ++totalSeconds;
+    {   secondsLabelI.innerHTML = ++totalSecondsI;
+    }
+
+    function moveTime() {
+        secondsLabelT.innerHTML = totalSecondsT++;
+
+        setTimeout(function() {
+            moveTime();
+        }, interval)
     }
 </script>
