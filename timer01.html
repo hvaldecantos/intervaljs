@@ -5,7 +5,7 @@
     <title>Timer</title>
 </head>
 <body>
-    <label id="minutes">00</label>:<label id="seconds">00</label>
+    <label id="seconds">0</label>
 </body>
 
 <script type="text/javascript">
@@ -16,21 +16,6 @@
 
     function setTime()
     {
-        ++totalSeconds;
-        secondsLabel.innerHTML = pad(totalSeconds%60);
-        minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
-    }
-
-    function pad(val)
-    {
-        var valString = val + "";
-        if(valString.length < 2)
-        {
-            return "0" + valString;
-        }
-        else
-        {
-            return valString;
-        }
+        secondsLabel.innerHTML = ++totalSeconds;
     }
 </script>
